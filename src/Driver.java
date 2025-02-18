@@ -14,7 +14,7 @@ public class Driver {
 		System.out.println(gc2.getPlate_Num());
 		Gasoline_Car[] gc = new Gasoline_Car[5];
 		Electric_Car[] ec = new Electric_Car[5];
-		
+		int j = 0;
 		
 		
 		
