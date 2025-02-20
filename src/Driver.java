@@ -10,12 +10,13 @@ public class Driver {
 		int Choice2 = 0;
 		Gasoline_Car gc1 = new Gasoline_Car();
 		Gasoline_Car gc2 = new Gasoline_Car();
-		System.out.println(gc1.getPlate_Num());
-		System.out.println(gc2.getPlate_Num());
 		Gasoline_Car[] gc = new Gasoline_Car[5];
 		Electric_Car[] ec = new Electric_Car[5];
-		int j = 0;
-		
+		Clients[] All_Clients = new Clients[5];
+		String name;
+		String Changes_Name;
+		int counter = 0;
+		int delete_index = 0;
 		
 		
 		
@@ -44,7 +45,7 @@ public class Driver {
 				case 3:
 				case 4:
 				case 5:
-					return;
+					break;
 			}
 			Choice2 = 0;
 			case 2:
@@ -56,12 +57,45 @@ public class Driver {
 				switch(Choice2)
 				{
 					case 1:
-						Clients josh = new Clients();
+						System.out.println("Please enter the client's name");
+						name = kb.next();
+						All_Clients[counter] = new Clients(name);
+						counter++;
+						System.out.println("Client added");
+						break;
 					case 2:
+						System.out.println("Please enter the client's name you wish to edit");
+						name = kb.next();
+						System.out.println("Please enter the client's new name");
+						Changes_Name = kb.next();
+						for(int i = 0; i < All_Clients.length; i++)
+							if(All_Clients[i] != null) {
+								if(All_Clients[i].getName().equals(Changes_Name))
+								All_Clients[i].setName(name);
+							}
+						break;
 					case 3:
+						System.out.println("Please enter the client's name you wish to delete");
+						name = kb.next();
+						for(int i = 0; i < All_Clients.length; i++)
+						{
+							if(All_Clients[i] != null) {
+								if (All_Clients[i].getName().equals(name)) {
+									delete_index = i;
+									All_Clients[i] = null;
+									System.out.println("Client deleted");
+								}
+							}
+						}
+						for(int i = delete_index; i < All_Clients.length-1; i++)
+							All_Clients[i] = All_Clients[i+1];
+
+
+						break;
 					case 4:
-						return;
+						break;
 				}
+				break;
 			case 3:
 				System.out.println("(1) Lease a vehicle to a client");
 				System.out.println("(2) Return a vehicle from a client");
@@ -75,7 +109,7 @@ public class Driver {
 					case 3:
 					case 4:
 					case 5:
-						return;
+						break;
 				}
 			case 4:
 				System.out.println("(1) Display the truck with the largest capacity");
@@ -86,7 +120,7 @@ public class Driver {
 					case 1:
 					case 2:
 					case 3:
-						return;
+						break;
 				}
 		}
 		}

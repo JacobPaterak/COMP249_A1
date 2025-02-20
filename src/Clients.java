@@ -1,8 +1,36 @@
 
 public class Clients
 {
-//Create client objeccts nnand store vehicles arrays inside
+    private String name;
+    private static int id;
+    //Create client objeccts nnand store vehicles arrays inside
 //Ex Client josh = new CLient()
 //this.vehicles[] and we can put the adddition and subtraction of array size in here too
 //
+    public Clients()
+    {
+      this.name = "";
+      id++;
+    }
+    public Clients(String name)
+    {
+        this.name = name;
+        id++;
+    }
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    public String getName()
+    {
+        return this.name;
+    }
+    public int getId()
+    {
+        return this.id;
+    }
+    public void setId()
+    {
+
+    }
 }
