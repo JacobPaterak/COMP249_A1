@@ -9,10 +9,10 @@ public Cars()
 	this.Max_people = 5;
 	
 }
-public Cars(String Make , String Model, int YOP,int max_peaople) 
+public Cars(String Make , String Model, int YOP,int max_people)
 {
 	super(Make,Model,YOP);
-	this.Max_people = Max_people;
+	this.Max_people = max_people;
 }
 public void setMax_People(int max_people)
 {
@@ -30,7 +30,7 @@ public Cars(Cars obj)
 
 public String toString()
 {
-	return super.toString() + this.Max_people;
+	return super.toString() + " the Max amount of people is "+ this.Max_people;
 
 }
 public boolean equals(Object obj)

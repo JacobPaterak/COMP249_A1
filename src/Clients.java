@@ -2,8 +2,9 @@
 public class Clients
 {
     private String name;
-    private static int id;
-    private Vehicles[] vehicles = new Vehicles[10];
+    private  int id;
+    private Vehicles[] vehicles = new Vehicles[1];
+    private int counter = 0;
     //Create client objeccts nnand store vehicles arrays inside
 //Ex Client josh = new CLient()
 //this.vehicles[] and we can put the adddition and subtraction of array size in here too
@@ -34,8 +35,34 @@ public class Clients
     {
 
     }
-    public void setVehicles(Vehicles obj)
+    public Vehicles[] getArray()
     {
-       //Vehicles
+        return this.vehicles;
+    }
+    public void setVehicles(int a,Vehicles veh)
+    {
+        this.vehicles[a] = veh;
+    }
+    public String toString()
+    {
+        return this.name + " " + this.id;
+    }
+    public Vehicles getVehicles(int index)
+    {
+        if (this.vehicles[index] instanceof Cars)
+        {
+            if (this.vehicles[index] instanceof Electric_Car)
+            {
+                Electric_Car obj = (Electric_Car) this.vehicles[index];
+                return this.vehicles[index];
+            }
+            else
+            {
+                Gasoline_Car obj = (Gasoline_Car) this.vehicles[index];
+                return this.vehicles[index];
+            }
+
+        }
+        return null;
     }
 }

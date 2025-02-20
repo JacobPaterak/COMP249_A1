@@ -4,27 +4,16 @@ public class Driver {
 	public static void main(String[] args) 
 	{
 		Scanner kb = new Scanner(System.in);
-		Vehicles v1 = new Vehicles();
-		Cars c1 = new Cars();
 		int choice=0;
 		int Choice2 = 0;
-		Gasoline_Car gc1 = new Gasoline_Car();
-		Gasoline_Car gc2 = new Gasoline_Car();
-		Gasoline_Car[] gc = new Gasoline_Car[5];
-		Electric_Car[] ec = new Electric_Car[5];
-		Clients[] All_Clients = new Clients[5];
+		Clients[] All_Clients = new Clients[1];
 		String name;
 		String Changes_Name;
 		int counter = 0;
 		int delete_index = 0;
 		int type = 0;
-		String make;
-		String model;
-		int YOP;
-		int Max_People;
-		double Max_Range;
 		int index = 0;
-		
+
 		
 		
 		do {
@@ -50,30 +39,40 @@ public class Driver {
 				case 1:
 					System.out.println("To which client are we adding a vehicle to? ");
 					name = kb.next();
-					for(int i = 0; i < All_Clients.length; i++)
-						if(All_Clients[i] != null) {
-							if(All_Clients[i].getName().equals(name))
-								index = i;
+					for(int i = 0; i < All_Clients.length; i++) {
+						if(All_Clients[i].getName().equals(name))
+						{
+						for (int j = 0; j < All_Clients.length; j++)
+						{
+							if (All_Clients[j] != null) {
+								if (All_Clients[j].getName().equals(name))
+									index = j;
+							}
 						}
-					System.out.println("Select the vehicle type");
-					System.out.println("(1) Gasoline Car");
-					System.out.println("(2) Electric Car");
-					System.out.println("(3) Electric Truck");
-					System.out.println("(4) Diesel Truck");
-					type = kb.nextInt();
+							System.out.println("Select the vehicle type");
+							System.out.println("(1) Gasoline Car");
+							System.out.println("(2) Electric Car");
+							System.out.println("(3) Electric Truck");
+							System.out.println("(4) Diesel Truck");
+							type = kb.nextInt();
+						}
+
+					}
+
 					switch(type)
 					{
 						case 1:
 							System.out.println("Please enter the vehicle's make");
-							make = kb.next();
+							String make = kb.next();
 							System.out.println("Please enter the vehicle's model");
-							model = kb.next();
+							String model = kb.next();
 							System.out.println("Please enter the vehicle's year of production");
-							YOP = kb.nextInt();
+							int YOP = kb.nextInt();
 							System.out.println("Please enter the vehicle's maximum number of people");
-							Max_People = kb.nextInt();
-							All_Clients[index].setVehicles(new Gasoline_Car(make,model,YOP,Max_People));
-
+							int Max_People = kb.nextInt();
+							System.out.println(index);
+							All_Clients[index].setVehicles(index,new Gasoline_Car(make,model,YOP,Max_People));
+							index++;
 							break;
 						case 2:
 							System.out.println("Please enter the vehicle's make");
@@ -85,25 +84,43 @@ public class Driver {
 							System.out.println("Please enter the vehicle's maximum number of people");
 							Max_People = kb.nextInt();
 							System.out.println("Please enter the vehicle's maximum range");
-							Max_Range = kb.nextDouble();
-							All_Clients[index].setVehicles(new Electric_Car(make,model,YOP,Max_People,Max_Range));
+							double Max_Range = kb.nextDouble();
+							All_Clients[index].setVehicles(index,new Electric_Car(make,model,YOP,Max_People,Max_Range));
+							index++;
 							break;
 						case 3:
+
 							break;
 						case 4:
 							break;
 						default:
 							System.out.println("Invalid input");
+							break;
 					}
 
 
+					break;
 				case 2:
+
+					for(int i = 0; i < All_Clients.length; i++)
+						for(int f = 0; f < All_Clients[i].getArray().length; f++)
+							if (All_Clients[i] != null)
+							{
+								System.out.println(All_Clients[i].getVehicles(f));
+							}
+
+
+					break;
 				case 3:
+					break;
 				case 4:
+					break;
 				case 5:
 					break;
 			}
+
 			Choice2 = 0;
+			break;
 			case 2:
 				System.out.println("(1) Add a client");
 				System.out.println("(2) Edit a client");

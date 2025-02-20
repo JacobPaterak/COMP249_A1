@@ -1,4 +1,4 @@
 
-public class Truck {
+public class Truck extends Vehicles{
 
 }

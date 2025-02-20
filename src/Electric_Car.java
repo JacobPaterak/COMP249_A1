@@ -26,7 +26,7 @@ public class Electric_Car extends Cars
 	}
 	public String toString()
 	{
-		return super.toString() + this.Max_Autonomy_Range;
+		return super.toString() +" the Max autonomy range is " +  this.Max_Autonomy_Range;
 	}
 	public Electric_Car(Electric_Car obj)
 	{
